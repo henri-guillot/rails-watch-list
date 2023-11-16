@@ -23,4 +23,15 @@ data['results'].each do |movie|
     rating: movie['vote_average']
   )
 end
-p "created - #{Movie.all.count}"
+p "movies created - #{Movie.all.count}"
+
+puts "Creating lists..."
+classic = {name: "Classic Movies"}
+best60s =  {name: "Best of 60s"}
+
+[classic, best60s].each do |attributes|
+  list = List.create(attributes)
+  puts "Created #{list.name}"
+end
+
+p "lists created : #{List.all.count}"
